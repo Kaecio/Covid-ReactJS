@@ -33,6 +33,18 @@ body{
     justify-content: space-between;
 }
 
+.card{
+    width:200px;
+    text-align: center;
+}
+
+.infoBox_title, .infoBox_total{
+    text-align: center;
+}
+
+.infoBox_total{
+
+}
 .app_left{
     flex: 0.9;
 }
@@ -46,6 +58,12 @@ body{
 @media (max-width: 990px) {
     .app{
         flex-direction: column;
+    }
+}
+
+@media (max-width: 750px) {
+    .app_status{
+        flex-wrap: wrap;
     }
 }
 
@@ -77,13 +95,8 @@ body{
     justify-content: center;
 
 }
+
 .map-container{
     height:400px;
 }
-
-.mapboxgl-canvas{
-    border-radius: 20px;
-    padding:5px;
-}
-
 `;
