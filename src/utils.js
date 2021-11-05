@@ -5,4 +5,9 @@ import numeral from 'numeral';
     return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1))
  }
 
- export const formatNumber = (data) => data ? `${numeral(data).format('0.0a')}` : `0.0`;
+ export const formatNumber = (data) => data ? `${numeral(data).format('0.000a')}` : `0.0`;
+
+ export const formatNumbers = (data) => {
+    const format = new Intl.NumberFormat('pt')
+    return format.format(data)
+ }

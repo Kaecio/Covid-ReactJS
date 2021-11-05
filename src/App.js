@@ -1,10 +1,10 @@
+import Mapa from './Mapa';
 import React,{ useState, useEffect }from 'react';
 import GlobalStyles from './styles/GlobalStyles';
 import { FormControl, MenuItem, Select, Card, CardContent } from '@material-ui/core';
-import Mapa from './Mapa';
 import Infobox from './infoBox';
 import Table from './Table';
-import { sortData, formatNumber } from './utils';
+import { sortData, formatNumber, formatNumbers } from './utils';
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -60,8 +60,6 @@ const onCountryChange = async (event) => {
   })  
 }
 
-console.log(latitude)
-console.log(longitude)
   return (
     <div className="app">
       <div className="app_left">
@@ -72,18 +70,20 @@ console.log(longitude)
         <Select variant="outlined" onChange={onCountryChange} value={country} >
           <MenuItem value={country}>WordWide</MenuItem>
          {countries.map((country) =>(
-          <MenuItem value={country.value}>{country.name}</MenuItem>
+          <MenuItem  key={country.name} value={country.value}>{country.name}</MenuItem>
           ))}
         </Select>
       </FormControl>
       </div>
       <div className="app_status">
-        <Infobox title="Casos de Covid-19" cases={formatNumber(countryInfo.cases)} total />
-        <Infobox title="Recuperados" cases={formatNumber(countryInfo.recovered)} total />
-        <Infobox title="Óbitos" cases={formatNumber(countryInfo.deaths)} total />
-        <Infobox title="testados" cases={formatNumber(countryInfo.tests)} total />
+        <Infobox className="infobox-container" title="Casos de Covid-19" cases={formatNumbers(countryInfo.cases)} total />
+        <Infobox className="infobox-container" title="Recuperados" cases={formatNumbers(countryInfo.recovered)} total />
+        <Infobox className="infobox-container" title="Óbitos" cases={formatNumbers(countryInfo.deaths)} total />
+        <Infobox className="infobox-container" title="testados" cases={formatNumbers(countryInfo.tests)} total />
       </div>
+      <div>
         <Mapa longitude={longitude} latitude={latitude} />
+      </div>
       </div>
       <Card className="app_right">
           <CardContent>

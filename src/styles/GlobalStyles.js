@@ -36,15 +36,13 @@ body{
 .card{
     width:200px;
     text-align: center;
+    margin-top:10px;
 }
 
 .infoBox_title, .infoBox_total{
     text-align: center;
 }
 
-.infoBox_total{
-
-}
 .app_left{
     flex: 0.9;
 }
