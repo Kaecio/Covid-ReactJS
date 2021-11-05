@@ -57,6 +57,12 @@ body{
     padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .author{
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 990px) {
     .app{
         flex-direction: column;
