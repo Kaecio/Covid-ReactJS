@@ -22,8 +22,7 @@ function Mapa({longitude, latitude}) {
   });
 
      return (
-        <div className="mapbox1">
-            <br></br>
+        <div className="mapbox">
           <ReactMapGL />
             <div ref={mapContainer} className="map-container"></div>
         </div>

@@ -4,7 +4,8 @@ import GlobalStyles from './styles/GlobalStyles';
 import { FormControl, MenuItem, Select, Card, CardContent } from '@material-ui/core';
 import Infobox from './infoBox';
 import Table from './Table';
-import { sortData, formatNumber, formatNumbers } from './utils';
+import Footer from './Footer';
+import { sortData, formatNumbers } from './utils';
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -61,6 +62,7 @@ const onCountryChange = async (event) => {
 }
 
   return (
+    <div className="container">
     <div className="app">
       <div className="app_left">
       <div className="app_header">
@@ -81,9 +83,7 @@ const onCountryChange = async (event) => {
         <Infobox className="infobox-container" title="Óbitos" cases={formatNumbers(countryInfo.deaths)} total />
         <Infobox className="infobox-container" title="testados" cases={formatNumbers(countryInfo.tests)} total />
       </div>
-      <div>
         <Mapa longitude={longitude} latitude={latitude} />
-      </div>
       </div>
       <Card className="app_right">
           <CardContent>
@@ -93,6 +93,8 @@ const onCountryChange = async (event) => {
           </CardContent>
       </Card>
       <GlobalStyles />
+    </div>
+      < Footer />
     </div>
   );
 };

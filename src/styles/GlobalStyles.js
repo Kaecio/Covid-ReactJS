@@ -2,9 +2,13 @@ import { createGlobalStyle } from'styled-components'
 
 export default createGlobalStyle `
 *{
+    border-sizing: border-box;
     margin:0;
     padding:0;
-    border-sizing: border-box;
+}
+
+h3{
+    text-align:center;
 }
 
 html, body, #root{
@@ -17,15 +21,15 @@ body{
 
 *, button, input {
     border:0;
-    outline: 0;
     font-family: 'Roboto', sans-serif;
+    outline: 0;
 }
 
 .app_header{
-    display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .app_status{
@@ -34,9 +38,9 @@ body{
 }
 
 .card{
-    width:200px;
-    text-align: center;
     margin-top:10px;
+    text-align: center;
+    width:200px;
 }
 
 .infoBox_title, .infoBox_total{
@@ -66,11 +70,11 @@ body{
 }
 
 .table{
+    color: #66666;
+    height: 500px;
     margin-top:20px;
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 400px;
-    color: #66666;
 }
 
 .table tr{
@@ -86,15 +90,23 @@ body{
     background-color: #B9E200;
 }
 
-.mapbox{
-    margin-top:20px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-
+.mapbox .map-container{
+    height: 400px;
 }
 
-.map-container{
-    height:400px;
+.mapbox{
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 0 9px -4px rgba(0,0,0,0.5);
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.footer{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #666666;
+    height: 50px;
 }
 `;
