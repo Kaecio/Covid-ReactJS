@@ -20,7 +20,7 @@ body{
 }
 
 *, button, input {
-    border:0;
+    border:10px;
     font-family: 'Roboto', sans-serif;
     outline: 0;
 }
@@ -51,6 +51,10 @@ body{
     flex: 0.9;
 }
 
+.app_right{
+    border-radius: 14px;
+    margin-top:10px;
+}
 .app{
     display: flex;
     justify-content: space-evenly;
@@ -59,7 +63,8 @@ body{
 
 @media (max-width: 768px) {
     .author{
-        font-size: 14px;
+        font-size: 14
+        px;
     }
 }
 
