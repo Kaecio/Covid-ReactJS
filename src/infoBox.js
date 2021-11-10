@@ -6,7 +6,7 @@ function infoBox({title, cases, total}) {
         <Card className="card">
             <CardContent>
                 <Typography className="infoBox_title" color="textSecondary">{title}</Typography>
-                <h2>{cases}</h2>
+                {cases.length && (<h2>{cases}</h2>)}
                 <Typography className="infoBox_total" color="textSecondary">{total} Total</Typography>
             </CardContent>
         </Card>

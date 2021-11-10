@@ -14,6 +14,7 @@ function App() {
   const [tableData, setTableData] = useState([])
   const [longitude, setLongitude] = useState(0)
   const [latitude, setLatitude] = useState(0)
+  const [flag, setFlag] = useState()
 
   useEffect(() => {
    fetch("https://disease.sh/v3/covid-19/all")
@@ -58,18 +59,19 @@ const onCountryChange = async (event) => {
     setCountryInfo(data)
     setLatitude(teste.countryInfo.lat)
     setLongitude(teste.countryInfo.long)
+    setFlag(teste.countryInfo.flag)
   })  
 }
-
+console.log(countryInfo)
   return (
     <div className="container">
     <div className="app">
       <div className="app_left">
       <div className="app_header">
         <h1>Central da Covid-19</h1>
-        
+        {!flag ? <div></div> : <img src={flag} className="flag" alt="flag" />}
       <FormControl className="form-control">
-        <Select variant="outlined" onChange={onCountryChange} value={country} >
+        <Select className="form-control-select" variant="outlined" onChange={onCountryChange} value={country} >
           <MenuItem value={country}>WordWide</MenuItem>
          {countries.map((country) =>(
           <MenuItem  key={country.name} value={country.value}>{country.name}</MenuItem>
@@ -78,10 +80,10 @@ const onCountryChange = async (event) => {
       </FormControl>
       </div>
       <div className="app_status">
-        <Infobox className="infobox-container" title="Casos de Covid-19" cases={formatNumbers(countryInfo.cases)} total />
-        <Infobox className="infobox-container" title="Recuperados" cases={formatNumbers(countryInfo.recovered)} total />
-        <Infobox className="infobox-container" title="Óbitos" cases={formatNumbers(countryInfo.deaths)} total />
-        <Infobox className="infobox-container" title="testados" cases={formatNumbers(countryInfo.tests)} total />
+        <Infobox className="infobox-container" title="Casos de Covid-19" cases={formatNumbers(countryInfo.cases)} />
+        <Infobox className="infobox-container" title="Recuperados" cases={formatNumbers(countryInfo.recovered)} />
+        <Infobox className="infobox-container" title="Óbitos" cases={formatNumbers(countryInfo.deaths)} />
+        <Infobox className="infobox-container" title="Testados" cases={formatNumbers(countryInfo.tests)} />
       </div>
         <Mapa longitude={longitude} latitude={latitude} />
       </div>

@@ -17,16 +17,16 @@ function Mapa({longitude, latitude}) {
       center: [longitude, latitude],
       zoom: zoom
     });
-    const locationPoint = new mapboxgl.Marker({ color: color }).setLngLat([longitude, latitude]).addTo(map.current);
-    console.log(locationPoint)
+    new mapboxgl.Marker({ color: color }).setLngLat([longitude, latitude]).addTo(map.current);
+    console.log('entrou no useEffect do Mapa')
   });
 
      return (
         <div className="mapbox">
           <ReactMapGL />
-            <div ref={mapContainer} className="map-container"></div>
+            <div ref={mapContainer} className="map-container" />
         </div>
     );
 }
 
-export default Mapa;
+export default React.memo(Mapa);

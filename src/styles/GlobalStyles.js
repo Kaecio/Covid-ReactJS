@@ -25,6 +25,10 @@ body{
     outline: 0;
 }
 
+.form-control-select{
+    box-shadow: 0 0 9px -4px rgba(0,0,0,0.5);
+}
+
 .app_header{
     align-items: center;
     display: flex;
@@ -32,12 +36,17 @@ body{
     margin-bottom: 20px;
 }
 
+.flag{
+    heigth: 90px;
+    width: 70px;
+}
 .app_status{
     display: flex;
     justify-content: space-between;
 }
 
 .card{
+    box-shadow: 0 0 9px -4px rgba(0,0,0,0.5);
     margin-top:10px;
     text-align: center;
     width:200px;
@@ -52,6 +61,7 @@ body{
 }
 
 .app_right{
+    box-shadow: 0 0 9px -4px rgba(0,0,0,0.5);
     border-radius: 14px;
     margin-top:10px;
 }
@@ -63,8 +73,8 @@ body{
 
 @media (max-width: 768px) {
     .author{
-        font-size: 14
-        px;
+        color: #fff;
+        font-size: 14 px;
     }
 }
 
@@ -77,6 +87,23 @@ body{
 @media (max-width: 750px) {
     .app_status{
         flex-wrap: wrap;
+    }
+    .app_header{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+    .app_status{
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .author{
+        text-align: center;
+    }
+    img{
+        display: none;
     }
 }
 
@@ -119,5 +146,12 @@ body{
     justify-content: center;
     background-color: #666666;
     height: 50px;
+}
+
+.author{
+    align-items: center;
+    color: #fff;
+    display: flex;
+    text-align: center;
 }
 `;
