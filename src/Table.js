@@ -1,7 +1,7 @@
 import React from "react";
 import { formatNumbers } from './utils';
 
-function Table({ countries }) {
+function Table({ countries, loading }) {
   return (
     <div className="table">
       <table>

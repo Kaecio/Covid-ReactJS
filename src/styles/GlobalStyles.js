@@ -2,9 +2,9 @@ import { createGlobalStyle } from'styled-components'
 
 export default createGlobalStyle `
 *{
-    border-sizing: border-box;
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 
 h3{
@@ -28,7 +28,9 @@ body{
 .form-control-select{
     box-shadow: 0 0 9px -4px rgba(0,0,0,0.5);
 }
-
+.container{
+    height: 100vh;
+}
 .app_header{
     align-items: center;
     display: flex;
@@ -37,7 +39,7 @@ body{
 }
 
 .flag{
-    heigth: 90px;
+    height: 90px;
     width: 70px;
 }
 .app_status{
@@ -108,7 +110,7 @@ body{
 }
 
 .table{
-    color: #66666;
+    color: #000;
     height: 500px;
     margin-top:20px;
     overflow-x: hidden;
@@ -145,7 +147,7 @@ body{
     display: flex;
     justify-content: center;
     background-color: #666666;
-    height: 50px;
+    height: 20vh;
 }
 
 .author{

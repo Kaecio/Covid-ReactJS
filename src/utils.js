@@ -9,5 +9,6 @@ import numeral from 'numeral';
 
  export const formatNumbers = (data) => {
     const format = new Intl.NumberFormat('pt')
+    if(!data) return 'carregando...'
     return format.format(data)
  }

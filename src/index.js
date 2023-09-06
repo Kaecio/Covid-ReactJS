@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
 ReactDOM.render(
+  <SkeletonTheme>
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  </SkeletonTheme>,
   document.getElementById('root')
 );
 

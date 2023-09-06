@@ -2,6 +2,8 @@ import Mapa from './Mapa';
 import React,{ useState, useEffect }from 'react';
 import GlobalStyles from './styles/GlobalStyles';
 import { FormControl, MenuItem, Select, Card, CardContent } from '@material-ui/core';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import Infobox from './infoBox';
 import Table from './Table';
 import Footer from './Footer';
@@ -15,11 +17,13 @@ function App() {
   const [longitude, setLongitude] = useState(0)
   const [latitude, setLatitude] = useState(0)
   const [flag, setFlag] = useState()
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
    fetch("https://disease.sh/v3/covid-19/all")
    .then(response => response.json())
     .then((data) => {
+      setLoading(false)
       setCountryInfo(data)
       })
   }, [])
@@ -36,6 +40,7 @@ function App() {
         long: country.countryInfo.long
       }))
       const sortedData = sortData(data)
+      setLoading(false)
       setTableData(sortedData)
       setCountries(countries);
     })
@@ -62,17 +67,17 @@ const onCountryChange = async (event) => {
     setFlag(teste.countryInfo.flag)
   })  
 }
-console.log(countryInfo)
   return (
     <div className="container">
     <div className="app">
       <div className="app_left">
       <div className="app_header">
         <h1>Central da Covid-19</h1>
-        {!flag ? <div></div> : <img src={flag} className="flag" alt="flag" />}
+        {flag && <img src={flag} className="flag" alt="flag" />}
       <FormControl className="form-control">
         <Select className="form-control-select" variant="outlined" onChange={onCountryChange} value={country} >
-          <MenuItem value={country}>WordWide</MenuItem>
+          {!country ? <Skeleton variant="rectangular" width={210} height={118} />: <MenuItem value={country}>WordWide</MenuItem>}
+          
          {countries.map((country) =>(
           <MenuItem  key={country.name} value={country.value}>{country.name}</MenuItem>
           ))}
@@ -90,13 +95,13 @@ console.log(countryInfo)
       <Card className="app_right">
           <CardContent>
             <h3>Dados </h3>
-            <Table countries={tableData} />
+             {loading ? <Skeleton count={20} width={300}/> : <Table countries={tableData} />}
             <h3>Novos casos</h3>
           </CardContent>
       </Card>
       <GlobalStyles />
     </div>
-      < Footer />
+      <Footer />
     </div>
   );
 };
